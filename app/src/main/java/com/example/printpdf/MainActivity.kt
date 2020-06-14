@@ -23,24 +23,23 @@ class MainActivity : AppCompatActivity() {
         val myPaint = Paint()
 
 
+        //Page 1
         val myPageInfo1 = makePageInfo(250, 500, 1)
         val myPage1 = pdfDocument.startPage(myPageInfo1)
-
         makePage(pdfDocument, myPage1, myPaint, "This is Page 1")
 
+        //Page 2
         val myPageInfo2 = makePageInfo(250, 500, 2)
         val myPage2 = pdfDocument.startPage(myPageInfo2)
-
         makePage(pdfDocument, myPage2, myPaint, "This is Page 2")
 
-
+        //Page 3
         val myPageInfo3 = makePageInfo(250, 500, 3)
         val myPage3 = pdfDocument.startPage(myPageInfo3)
-
         makePage(pdfDocument, myPage3, myPaint, "This is Page 3")
 
+        //Saving the Pdf in package
         val file = File(this.getExternalFilesDir(null), "/FirstPdf.pdf")
-
         try {
             pdfDocument.writeTo(FileOutputStream(file))
             Toast.makeText(this, "pdf is created", Toast.LENGTH_SHORT).show()
@@ -48,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
         }
 
+        //Pdf Document is closed
         pdfDocument.close()
     }
 
